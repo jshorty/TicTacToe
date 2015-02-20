@@ -36,5 +36,40 @@ Clock.prototype._tick = function () {
   this.printTime();
 };
 
-var clock = new Clock();
-clock.run();
+/*var clock = new Clock();
+clock.run();*/
+
+var readline = require('readline');
+var reader = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+function addNumbers(sum, numsLeft, completionCallback) {
+
+  function increment (answer) {
+    var num = parseInt(answer);
+    sum += num;
+    console.log(sum);
+    addNumbers(sum, numsLeft - 1, completionCallback)
+  }
+
+
+  if (numsLeft > 0) {
+    reader.question("Q", (function (answer) {
+      increment(answer)
+    }))
+  } else {
+    completionCallback(sum)
+  }
+
+}
+
+
+function completionCallback(sum) {
+  return sum
+}
+
+// addNumbers(0, 3, function (sum) {
+//   console.log("Total Sum: " + sum);
+// });
