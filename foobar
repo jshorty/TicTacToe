@@ -1,4 +1,0 @@
-var x = new Hanoi;
-x.promptMove(function () {
-  console.log("HI!");
-});
