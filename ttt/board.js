@@ -41,7 +41,9 @@ Board.prototype.winner = function () {
   var winner = false;
   for (var i = 0; i < Board.WINNING_COMBOS.length; i++){
     combo = Board.WINNING_COMBOS[i]
-    if (grid[combo[0]] === " ") continue;
+    if (grid[combo[0]] === " ") {
+      continue;
+    };
 
     if (grid[combo[0]] === grid[combo[1]] &&
       grid[combo[1]] === grid[combo[2]]) {
