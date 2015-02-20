@@ -31,3 +31,12 @@ Hanoi.prototype.isValidMove = function(startTowerIdx, endTowerIdx) {
     return false;
   }
 };
+
+Hanoi.prototype.move = function(startTowerIdx, endTowerIdx) {
+  var start = this.stacks[startTowerIdx];
+  var end = this.stacks[endTowerIdx];
+
+  if (this.isValidMove(startTowerIdx, endTowerIdx)) {
+    end.push(start.pop())
+  }
+}
